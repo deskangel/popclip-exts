@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Extension Description</key>
+	<string>Translate the selected word or short phrase instantly within PopClip. Powered by Microsoft Translator.</string>
+	<key>Extension Identifier</key>
+	<string>com.da.extension.instant-translate</string>
+	<key>Extension Image File</key>
+	<string>itrans.png</string>
+	<key>Extension Name</key>
+	<string>Instant Translate</string>
+</dict>
+</plist>
