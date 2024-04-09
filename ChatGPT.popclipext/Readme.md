@@ -1,26 +1,10 @@
 # ChatGPT
 
-PopClip extension to send the selected text to [OpenAI](https://openai.com/)'s GPT-3.5 and GPT-4 chat API, and append the response.
+PopClip extension to send the selected text to ChatGPT API Endpoint and get the translated text.
 
 **Note: Requires pre-paid API credits on your OpenAI account. API usage is not included in ChatGPT Plus subscripiton.**
 
 ## Description
-
-### Actions
-
-The main action, **Chat**, sends the selected text to OpenAI and
-appends the response as a new line.
-
-The previous messages in the chat are sent along with each new message, allowing an extended dialogue with the AI.
-
-Modifiers:
-
-- Hold Shift(⇧) to copy just the response to the clipboard.
-
-- Hold Option(⌥)-Shift(⇧) to paste the response over the selection.
-
-The **Reset** action (broom icon) clears the current chat history to start a
-fresh conversation.
 
 ### Configuration
 
@@ -38,21 +22,15 @@ account. To get an API Key:
 
 Available values are `gpt-3.5-turbo`, `gpt-4-turbo-preview` and `gpt-4`. Note that some accounts might not be able to access the GPT-4 model — see OpenAI's documentation for details.
 
-#### Reset Timer (minutes)
+#### Assistant
 
-After this many minutes without any messages, the extension will automatically
-reset the conversation. Set it blank to never reset, and set it to 0 to always
-reset. The default value is 15 minutes.
-
-#### Show Reset Button
-
-Control whether or not to show the reset action in the popup.
+Give prompts to instruct the assistant what to do.
 
 ### Errors
 
 You may see the following error:
 
-`Message from OpenAI (code 429): You exceeded your current quota, please check your plan and billing data.`
+`Message from API Endpoint (code 429): You exceeded your current quota, please check your plan and billing data.`
 
 The message means you need to add some credit to you OpenAI API account. You can do this at <https://platform.openai.com/account/billing/overview>.
 

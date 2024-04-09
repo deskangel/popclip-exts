@@ -1,8 +1,8 @@
 {
-  "name": "ChatGPT",
+  "name": "ChatGPT Assistant",
   "icon": "openai-icon.svg",
   "identifier": "com.da.popclip.extension.chatgpt",
-  "description": "Send the selected text to ChatGPT and append the response. Hold Shift (⇧) to copy just the response.",
+  "description": "A ChatGPT Assistant",
   "note": "You will need an <a href=\"https://platform.openai.com/account/api-keys\">OpenAI API key</a>",
   "app": {
     "name": "ChatGPT",
@@ -17,13 +17,12 @@
     {
       "identifier": "apiUrl",
       "label": "API Url",
-      "type": "string"      
+      "type": "string"
     },
     {
       "identifier": "apikey",
       "label": "API Key",
-      "type": "string",
-      "description": "Obtain an API key from: https://platform.openai.com/account/api-keys"
+      "type": "string"
     },
     {
       "identifier:": "model",
@@ -33,18 +32,9 @@
       "values": ["gpt-3.5-turbo", "gpt-4-turbo-preview", "gpt-4"]
     },
     {
-      "identifier:": "resetMinutes",
-      "label": "Reset Timer (minutes)",
-      "type": "string",
-      "description": "Reset the conversation if idle for this many minutes. Set blank to disable.",
-      "defaultValue": "15"
-    },
-    {
-      "identifier": "showReset",
-      "label": "Show Reset Button",
-      "type": "boolean",
-      "icon": "broom-icon.svg",
-      "description": "Show a button to reset the conversation."
+      "identifier": "prompt",
+      "label": "Assistant",
+      "type": "string"
     }
   ]
 }
