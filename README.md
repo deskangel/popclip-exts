@@ -1,2 +1,5 @@
 # popclip-exts
-new or modified extensions for popclip
+New or modified extensions for popclip.
+
+# Install
+Double on the `popclipext` file to install.
