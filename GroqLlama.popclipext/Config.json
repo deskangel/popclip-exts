@@ -1,0 +1,40 @@
+{
+  "name": "Llama Assistant",
+  "icon": "llama-icon.svg",
+  "identifier": "com.da.popclip.extension.groqllama",
+  "description": "A Llama Assistant",
+  "note": "You will need an <a href=\"https://https://console.groq.com/keys\">API key</a>",
+  "app": {
+    "name": "Llama",
+    "link": "https://groq.com"
+  },
+  "popclipVersion": 4069,
+  "module": "llama.js",
+  "entitlements": [
+    "network"
+  ],
+  "options": [
+    {
+      "identifier": "apiUrl",
+      "label": "API Endpoint",
+      "type": "string"
+    },
+    {
+      "identifier": "apikey",
+      "label": "API Key",
+      "type": "string"
+    },
+    {
+      "identifier:": "model",
+      "label": "Model",
+      "type": "multiple",
+      "defaultValue": "llama3-70b-8192",
+      "values": ["llama3-70b-8192", "llama3-8b-8192", "mixtral-8x7b-32768"]
+    },
+    {
+      "identifier": "prompt",
+      "label": "Assistant",
+      "type": "string"
+    }
+  ]
+}
