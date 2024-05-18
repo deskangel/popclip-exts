@@ -1,0 +1,35 @@
+{
+  "name": "Gemini Assistant",
+  "icon": "gemini-icon.svg",
+  "identifier": "com.da.popclip.extension.gemini",
+  "description": "A Gemini Assistant",
+  "note": "You will need an <a href=\"https://aistudio.google.com/app/apikey\">OpenAI API key</a>",
+  "app": {
+    "name": "Gemini",
+    "link": "https://aistudio.google.com/app/apikey"
+  },
+  "popclipVersion": 4069,
+  "module": "gemini.js",
+  "entitlements": [
+    "network"
+  ],
+  "options": [
+    {
+      "identifier": "apikey",
+      "label": "API Key",
+      "type": "string"
+    },
+    {
+      "identifier:": "model",
+      "label": "Model",
+      "type": "multiple",
+      "defaultValue": "gemini-pro",
+      "values": ["gemini-pro", "gemini-1.5-pro-latest", "gemini-1.5-pro", "gemini-1.5-flash"]
+    },
+    {
+      "identifier": "prompt",
+      "label": "Assistant",
+      "type": "string"
+    }
+  ]
+}
