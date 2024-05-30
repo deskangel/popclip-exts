@@ -26,6 +26,12 @@ Available values are `llama3-70b-8192`, `llama3-8b-8192` and `mixtral-8x7b-32768
 
 Give prompts to instruct the assistant what to do.
 
+## About
+
+### Author
+
+iDeskAngel: <https://github.com/deskangel>
+	
 ### Changelog
 
 #### 2024-04-25
