@@ -35,6 +35,19 @@
       "identifier": "prompt",
       "label": "Assistant",
       "type": "string"
-    }
+    },
+    {
+      "identifier": "useTot",
+      "label": "Append to Tot",
+      "defaultValue": false,
+      "type:": "boolean"
+    },
+    {
+      "identifier": "totPage",
+      "label": "Tot Page",
+      "type": "multiple",
+      "values": ["1", "2", "3", "4", "5", "6", "7"],
+      "valueLabels": ["Dot 1", "Dot 2", "Dot 3", "Dot 4", "Dot 5", "Dot 6", "Dot 7"]
+    }    
   ]
 }

@@ -19,7 +19,13 @@ const chat = async (input, options) => {
 
         const response = data.choices[0].message.content.trim();
 
-        popclip.showText(response, {preview: true});
+        if (options.useTot) {
+            var encodedContent = encodeURIComponent('\n-----------------------\n\n' + response + '\n');
+            var totURL = `tot://${options.totPage}/append?text=${encodedContent}`;
+            popclip.openUrl(totURL);
+        } else {
+            popclip.showText(response, {preview: true});
+        }
     }
     catch (e) {
         popclip.showText(getErrorInfo(e));

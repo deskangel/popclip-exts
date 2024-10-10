@@ -14,11 +14,7 @@ const chat = async (input, options) => {
     "contents": [
         {
             "role": "user",
-            "parts": [{"text": options.prompt}]
-        },
-        {
-            "role": "user",
-            "parts": [{"text": input.text}]
+            "parts": [{"text": options.prompt + input.text}]
         }
     ],
     "safetySettings": [
@@ -39,7 +35,13 @@ const chat = async (input, options) => {
 
         const response = data.candidates[0].content.parts.map(part => part.text).join('\n');
 
-        popclip.showText(response, {preview: true});
+        if (options.useTot) {
+            var encodedContent = encodeURIComponent('\n-----------------------\n\n' + response + '\n');
+            var totURL = `tot://${options.totPage}/append?text=${encodedContent}`;
+            popclip.openUrl(totURL);
+        } else {
+            popclip.showText(response, {preview: true});
+        }
     }
     catch (e) {
         popclip.showText(getErrorInfo(e));

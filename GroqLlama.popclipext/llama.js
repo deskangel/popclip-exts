@@ -18,8 +18,14 @@ const chat = async (input, options) => {
         });
 
         const response = data.choices[0].message.content.trim();
-
-        popclip.showText(response, {preview: true});
+        
+        if (options.useTot) {
+            var encodedContent = encodeURIComponent('\n-----------------------\n\n' + response.replace(/\n\n/g, '\n') + '\n');
+            var totURL = `tot://${options.totPage}/append?text=${encodedContent}`;
+            popclip.openUrl(totURL);
+        } else {
+            popclip.showText(response, {preview: true});
+        }
     }
     catch (e) {
         popclip.showText(getErrorInfo(e));
@@ -35,5 +41,6 @@ function getErrorInfo(error) {
         return String(error);
     }
 }
+
 exports.getErrorInfo = getErrorInfo;
 exports.action = chat
