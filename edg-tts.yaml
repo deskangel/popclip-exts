@@ -1,0 +1,22 @@
+#popclip
+# install: select the text with mouse and click the install on popclip bar
+name: Edge-TTS
+icon: iconify:ri:speak-line
+interpreter: /bin/zsh
+shell script: |
+    export PATH=${POPCLIP_OPTION_PATH}:$PATH
+    edge-playback --rate="${POPCLIP_OPTION_RATE:-+20%}" --voice "${POPCLIP_OPTION_VOICE:-zh-CN-XiaoxiaoNeural}" --text "$POPCLIP_TEXT"
+options:
+  - identifier: path
+    label: The bin path where edge-playback/edge-tts located.
+    type: string
+  - identifier: rate
+    label: Rate (default +20%)
+    type: string
+    default: +20%
+    description: the playback rate, like +0%, or -20%
+  - identifier: voice
+    label: Voice
+    type: string
+    default: zh-CN-XiaoxiaoNeural
+    description: Set the voice, with the default being zh-CN-XiaoxiaoNeural for Chinese (Xiaoxiao) and en-US-AriaNeural for English (Aria).
