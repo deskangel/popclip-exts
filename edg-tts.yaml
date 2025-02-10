@@ -8,7 +8,8 @@ shell script: |
     edge-playback --rate="${POPCLIP_OPTION_RATE:-+20%}" --voice "${POPCLIP_OPTION_VOICE:-zh-CN-XiaoxiaoNeural}" --text "$POPCLIP_TEXT"
 options:
   - identifier: path
-    label: The bin path where edge-playback/edge-tts located.
+    label: Path
+    description: The bin path where edge-playback/edge-tts located
     type: string
   - identifier: rate
     label: Rate (default +20%)
