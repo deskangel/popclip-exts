@@ -1,0 +1,46 @@
+#popclip
+# install: select the text with mouse and click the install on popclip bar
+name: Edge-TTS
+icon: iconify:ri:speak-line
+interpreter: /bin/zsh
+shell script: |
+  export PATH=${POPCLIP_OPTION_PATH}:$PATH
+  DETECTED_LAN=$(python ${POPCLIP_OPTION_LANDETECT_FILE} "${POPCLIP_TEXT}")
+  DETECTED_LAN=$(echo -n "$DETECTED_LAN")
+  if [[ "$DETECTED_LAN" == "en" ]]; then
+    VOICE_VALUE="${POPCLIP_OPTION_EN_VOICE:-en-US-AriaNeural}"
+  elif [[ "$DETECTED_LAN" == "zh-cn" ]]; then
+    VOICE_VALUE="${POPCLIP_OPTION_CN_VOICE:-zh-CN-XiaoxiaoNeural}"
+  else
+    VOICE_VALUE="${POPCLIP_OPTION_O_VOICE:-en-US-AriaNeural}"
+  fi
+  edge-playback --rate="${POPCLIP_OPTION_RATE:-+20%}" --voice "${VOICE_VALUE}" --text "$POPCLIP_TEXT"
+options:
+  - identifier: path
+    label: Path
+    description: The bin path where edge-playback/edge-tts located
+    type: string
+  - identifier: landetect_file
+    label: LanDetectPath
+    description: The path of language detect python script
+    type: string
+  - identifier: rate
+    label: Rate (default +20%)
+    type: string
+    defaultValue: +20%
+    description: the playback rate, like +0%, or -20%
+  - identifier: cn_voice
+    label: Chinese Voice
+    type: string
+    defaultValue: zh-CN-XiaoxiaoNeural
+    description: Set the voice for Chinese, with the default being zh-CN-XiaoxiaoNeural.
+  - identifier: en_voice
+    label: English Voice
+    type: string
+    defaultValue: en-US-AriaNeural
+    description: Set the voice for English, with the default being en-US-AriaNeural.
+  - identifier: o_voice
+    label: Other Voice
+    type: string
+    defaultValue: en-US-AriaNeural
+    description: Set the voice for Other language, with the default being en-US-AriaNeural.
