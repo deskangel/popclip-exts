@@ -11,6 +11,8 @@ shell script: |
     VOICE_VALUE="${POPCLIP_OPTION_EN_VOICE:-en-US-AriaNeural}"
   elif [[ "$DETECTED_LAN" == "zh-cn" ]]; then
     VOICE_VALUE="${POPCLIP_OPTION_CN_VOICE:-zh-CN-XiaoxiaoNeural}"
+  elif [[ "$DETECTED_LAN" == "zh-tw" ]]; then
+    VOICE_VALUE="${POPCLIP_OPTION_TW_VOICE:-zh-TW-HsiaoChenNeural}"
   else
     VOICE_VALUE="${POPCLIP_OPTION_O_VOICE:-en-US-AriaNeural}"
   fi
@@ -34,6 +36,11 @@ options:
     type: string
     defaultValue: zh-CN-XiaoxiaoNeural
     description: Set the voice for Chinese, with the default being zh-CN-XiaoxiaoNeural.
+  - identifier: tw_voice
+    label: Chinese Taiwan Voice
+    type: string
+    defaultValue: zh-TW-HsiaoChenNeural
+    description: Set the voice for Traditional Chinese, with the default being zh-TW-HsiaoChenNeural.
   - identifier: en_voice
     label: English Voice
     type: string
