@@ -1,8 +1,8 @@
 {
-  "name": "Gemini Assistant",
-  "icon": "gemini-icon.svg",
-  "identifier": "com.da.popclip.extension.gemini",
-  "description": "A Gemini Assistant",
+  "name": "Gemini Translator",
+  "icon": "trans-icon.png",
+  "identifier": "com.da.popclip.extension.geminitrans",
+  "description": "A Gemini AI Translator",
   "note": "You will need an <a href=\"https://aistudio.google.com/app/apikey\">Gemini API key</a>",
   "app": {
     "name": "Gemini",
@@ -28,8 +28,7 @@
     },
     {
       "identifier": "prompt",
-      "label": "Assistant prompt",
-      "defaultValue": "你是一个翻译专家，把文本翻译成恰当的中文。如果发给你的文本只有一个单词，给出这个单词的音标和中文解释。请直接给出 plaintext 的结果。你需要处理的文本是：",
+      "label": "Assistant",
       "type": "string"
     },
     {
