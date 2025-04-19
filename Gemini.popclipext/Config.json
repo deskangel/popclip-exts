@@ -3,7 +3,7 @@
   "icon": "gemini-icon.svg",
   "identifier": "com.da.popclip.extension.gemini",
   "description": "A Gemini Assistant",
-  "note": "You will need an <a href=\"https://aistudio.google.com/app/apikey\">OpenAI API key</a>",
+  "note": "You will need an <a href=\"https://aistudio.google.com/app/apikey\">Gemini API key</a>",
   "app": {
     "name": "Gemini",
     "link": "https://aistudio.google.com/app/apikey"
@@ -24,7 +24,7 @@
       "label": "Model",
       "type": "multiple",
       "defaultValue": "gemini-pro",
-      "values": ["gemini-pro", "gemini-1.5-pro-latest", "gemini-1.5-flash-latest", "gemini-2.0-flash-exp"]
+      "values": ["gemini-pro", "gemini-1.5-pro-latest", "gemini-1.5-flash-latest", "gemini-2.0-flash-exp", "gemini-2.0-flash"]
     },
     {
       "identifier": "prompt",
