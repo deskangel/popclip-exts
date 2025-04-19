@@ -29,7 +29,7 @@
       "label": "Model",
       "type": "multiple",
       "defaultValue": "llama3-70b-8192",
-      "values": ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "gemma2-9b-it", "mixtral-8x7b-32768", "deepseek-r1-distill-llama-70b"]
+      "values": ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "gemma2-9b-it", "mixtral-8x7b-32768", "deepseek-r1-distill-llama-70b", "meta-llama/llama-4-scout-17b-16e-instruct"]
     },
     {
       "identifier": "prompt",
