@@ -43,8 +43,16 @@ options:
     description: Set the voice for Traditional Chinese, with the default being zh-TW-HsiaoChenNeural.
   - identifier: en_voice
     label: English Voice
-    type: string
-    defaultValue: en-US-AriaNeural
+    type: multiple
+    values: 
+      - en-US-EmmaMultilingualNeural
+      - en-US-BrianMultilingualNeural
+      - en-US-AvaMultilingualNeural
+      - en-GB-LibbyNeural 
+      - en-GB-MaisieNeural
+      - en-GB-RyanNeural  
+      - en-GB-SoniaNeural 
+      - en-GB-ThomasNeural
     description: Set the voice for English, with the default being en-US-AriaNeural.
   - identifier: o_voice
     label: Other Voice
