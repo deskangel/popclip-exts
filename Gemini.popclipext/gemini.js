@@ -36,7 +36,8 @@ const chat = async (input, options) => {
         const response = data.candidates[0].content.parts.map(part => part.text).join('\n');
 
         if (options.useTot) {
-            var encodedContent = encodeURIComponent('\n-----------------------\n\n' + response + '\n');
+            const now = new Date();
+            var encodedContent = encodeURIComponent('\n-----------' + now.toLocaleString("zh-CN", {hour12: false}) + '------------\n\n' + response + '\n');
             var totURL = `tot://${options.totPage}/append?text=${encodedContent}`;
             popclip.openUrl(totURL);
         } else {
