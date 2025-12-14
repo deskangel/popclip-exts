@@ -5,31 +5,35 @@ const axios = require("axios");
 
 // the main chat action
 const chat = async (input, options) => {
-    const gemini = axios.default.create({
-        headers: { 'Content-Type': 'application/json' },
-    });
+    const headers = options.usePool ?
+        {'Content-Type': 'application/json', 'Accept-Encoding': 'deflate'} :
+        {'x-goog-api-key': options.apikey, 'Content-Type': 'application/json', 'Accept-Encoding': 'deflate'}
 
-    const url =  `https://generativelanguage.googleapis.com/v1beta/models/${options.model}:generateContent?key=${options.apikey}`
+    const gemini = axios.default.create({headers: headers});
+
+    const baseUrl = options.usePool ? options.poolUrl : 'https://generativelanguage.googleapis.com/v1beta';
+    const url =  `${baseUrl}/v1beta/models/${options.model}:generateContent`
     const message = {
-    "contents": [
-        {
-            "role": "user",
-            "parts": [{"text": options.prompt + input.text}]
+        "contents": [
+            {
+                "role": "user",
+                "parts": [{"text": options.prompt + input.text}]
+            }
+        ],
+        "safetySettings": [
+            {
+                "category": "HARM_CATEGORY_HARASSMENT",
+                "threshold": "BLOCK_ONLY_HIGH"
+            }
+        ],
+        "generationConfig": {
+          "temperature": 1.0,
+          "maxOutputTokens": 8192,
+          "topP": 0.95,
+          "topK": 64
         }
-    ],
-    "safetySettings": [
-        {
-            "category": "HARM_CATEGORY_HARASSMENT",
-            "threshold": "BLOCK_ONLY_HIGH"
-        }
-    ],
-    "generationConfig": {
-      "temperature": 1.0,
-      "maxOutputTokens": 8192,
-      "topP": 0.95,
-      "topK": 64
-    }
-  };
+    };
+
     try {
         const { data } = await gemini.post(url, message);
 

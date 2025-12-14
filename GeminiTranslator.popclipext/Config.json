@@ -20,6 +20,18 @@
       "type": "string"
     },
     {
+      "identifier": "poolUrl",
+      "label": "API Key Pool Url",
+      "defaultValue": "http://localhost:5001",
+      "type": "string"
+    },
+    {
+      "identifier": "usePool",
+      "label": "Use API Key Pool",
+      "defaultValue": false,
+      "type": "boolean"
+    },
+    {
       "identifier:": "model",
       "label": "Model",
       "type": "multiple",
@@ -43,6 +55,6 @@
       "type": "multiple",
       "values": ["1", "2", "3", "4", "5", "6", "7"],
       "valueLabels": ["Dot 1", "Dot 2", "Dot 3", "Dot 4", "Dot 5", "Dot 6", "Dot 7"]
-    }    
+    }
   ]
 }
