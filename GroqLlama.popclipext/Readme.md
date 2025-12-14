@@ -20,7 +20,7 @@ To use this extension, you need to provide it with an API Key for an Groq accoun
 
 #### Model
 
-Available values are `llama3-70b-8192`, `llama3-8b-8192` and `mixtral-8x7b-32768`. 
+Available values are `llama3-70b-8192`, `llama3-8b-8192`, `mixtral-8x7b-32768`, and etc.. 
 
 #### Assistant
 

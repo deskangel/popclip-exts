@@ -16,7 +16,7 @@ account. To get an API Key:
 
 #### Model
 
-Available values are `gemini-1.5-flash-latest`, `gemini-1.5-pro-lastest` and `gemini-pro`. 
+Available values are `gemini-1.5-flash-latest`, `gemini-1.5-pro-lastest`, `gemini-pro` and etc.. 
 
 #### Assistant
 
