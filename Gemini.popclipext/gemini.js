@@ -5,12 +5,15 @@ const axios = require("axios");
 
 // the main chat action
 const chat = async (input, options) => {
-    const gemini = axios.default.create({
-        headers: { 'Content-Type': 'application/json' },
-    });
+  const headers = options.usePool ?
+      {'Content-Type': 'application/json', 'Accept-Encoding': 'deflate'} :
+      {'x-goog-api-key': options.apikey, 'Content-Type': 'application/json', 'Accept-Encoding': 'deflate'}
 
-    const url =  `https://generativelanguage.googleapis.com/v1beta/models/${options.model}:generateContent?key=${options.apikey}`
-    const message = {
+  const gemini = axios.default.create({headers: headers});
+
+  const baseUrl = options.usePool ? options.poolUrl : 'https://generativelanguage.googleapis.com/v1beta';
+  const url =  `${baseUrl}/v1beta/models/${options.model}:generateContent`
+  const message = {
     "contents": [
         {
             "role": "user",
