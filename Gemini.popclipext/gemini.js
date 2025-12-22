@@ -33,33 +33,40 @@ const chat = async (input, options) => {
       "topK": 64
     }
   };
-    try {
-        const { data } = await gemini.post(url, message);
 
-        const response = data.candidates[0].content.parts.map(part => part.text).join('\n');
+  if (options.model == 'gemini-3-flash-preview') {
+    message.generationConfig.thinkingConfig = {
+      "thinkingLevel": options.thinkingLevel
+    };
+  }
 
-        if (options.useTot) {
-            const now = new Date();
-            var encodedContent = encodeURIComponent('\n-----------' + now.toLocaleString("zh-CN", {hour12: false}) + '------------\n\n' + response + '\n');
-            var totURL = `tot://${options.totPage}/append?text=${encodedContent}`;
-            popclip.openUrl(totURL);
-        } else {
-            popclip.showText(response, {preview: true});
-        }
-    }
-    catch (e) {
-        popclip.showText(getErrorInfo(e));
-    }
+  try {
+      const { data } = await gemini.post(url, message);
+
+      const response = data.candidates[0].content.parts.map(part => part.text).join('\n');
+
+      if (options.useTot) {
+          const now = new Date();
+          var encodedContent = encodeURIComponent('\n-----------' + now.toLocaleString("zh-CN", {hour12: false}) + '------------\n\n' + response + '\n');
+          var totURL = `tot://${options.totPage}/append?text=${encodedContent}`;
+          popclip.openUrl(totURL);
+      } else {
+          popclip.showText(response, {preview: true});
+      }
+  }
+  catch (e) {
+      popclip.showText(getErrorInfo(e));
+  }
 };
 function getErrorInfo(error) {
-    if (typeof error === "object" && error !== null && "response" in error) {
-        const response = error.response;
-        //return JSON.stringify(response);
-        return `Message from API Endpoint (code ${response.status}): ${response.data.error.message}`;
-    }
-    else {
-        return String(error);
-    }
+  if (typeof error === "object" && error !== null && "response" in error) {
+      const response = error.response;
+      //return JSON.stringify(response);
+      return `Message from API Endpoint (code ${response.status}): ${response.data.error.message}`;
+  }
+  else {
+      return String(error);
+  }
 }
 exports.getErrorInfo = getErrorInfo;
 exports.action = chat
