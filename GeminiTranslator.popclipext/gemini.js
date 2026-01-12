@@ -6,7 +6,7 @@ const axios = require("axios");
 // the main chat action
 const chat = async (input, options) => {
   const headers = options.usePool ?
-      {'Content-Type': 'application/json', 'Accept-Encoding': 'deflate'} :
+      {'Content-Type': 'application/json', 'Accept-Encoding': 'deflate', 'Authorization': `Bearer ${options.poolApiKey}`} :
       {'x-goog-api-key': options.apikey, 'Content-Type': 'application/json', 'Accept-Encoding': 'deflate'}
 
   const gemini = axios.default.create({headers: headers});

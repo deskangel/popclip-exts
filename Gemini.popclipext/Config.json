@@ -26,6 +26,11 @@
       "type": "string"
     },
     {
+      "identifier": "poolApiKey",
+      "label": "Pool API Key",
+      "type": "string"
+    },
+    {
       "identifier": "usePool",
       "label": "Use API Key Pool",
       "defaultValue": false,
