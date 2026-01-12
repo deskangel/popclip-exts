@@ -11,7 +11,7 @@ const chat = async (input, options) => {
 
   const gemini = axios.default.create({headers: headers});
 
-  const baseUrl = options.usePool ? options.poolUrl : 'https://generativelanguage.googleapis.com/v1beta';
+  const baseUrl = options.usePool ? options.poolUrl : 'https://generativelanguage.googleapis.com';
   const url =  `${baseUrl}/v1beta/models/${options.model}:generateContent`
   const message = {
     "contents": [
